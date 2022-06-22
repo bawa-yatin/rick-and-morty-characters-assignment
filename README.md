@@ -1,1 +1,1 @@
-Start Rick And Monty Assignment
+Rick And Monty Assignment using Redux
