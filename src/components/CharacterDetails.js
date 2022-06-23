@@ -88,7 +88,7 @@ function CharacterDetails() {
               <Link
                 to="/"
                 type="button"
-                class="btn btn-success mt-5"
+                class="btn btn-outline-success mt-5"
                 style={{ display: "block", margin: "0 auto" }}
               >
                 Back to Home Page

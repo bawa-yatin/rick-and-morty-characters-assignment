@@ -32,10 +32,19 @@ function CharactersScreen() {
     <div className="container mb-4" style={{ marginTop: "90px" }}>
       <h2 className="mb-3">Characters</h2>
       <h5 id="fillterHeader mb-5" style={{ textAlign: "center" }}>
-        Filter Character Using Species, Gender, Status
+        Filter Character Using Name, Species, Gender And Status
       </h5>
       <form>
         <div class="row mb-4">
+          <div class="col-xl-3">
+            <input
+              type="text"
+              className="form-control"
+              value={name}
+              onChange={handleChange}
+              placeholder="Enter Name"
+            ></input>
+          </div>
           <div class="col-xl-3">
             <select
               class="form-select"
@@ -80,10 +89,6 @@ function CharactersScreen() {
                 <option value={item}>{item}</option>
               ))}
             </select>
-          </div>
-
-          <div class="col-xl-3">
-            <input type="text" value={name} onChange={handleChange}></input>
           </div>
         </div>
       </form>

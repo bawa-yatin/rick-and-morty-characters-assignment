@@ -6,7 +6,7 @@ const initialState = {
   characters: [],
   favCharacter: [],
   numberOfFav: 0,
-  favCharColor: "",
+  favCharValue: false,
   loading: true,
   loaded: false,
   loadError: false,
@@ -59,8 +59,19 @@ const characterSlice = createSlice({
 
         if (index !== -1) {
           state.favCharacter.splice(index, 1);
+          state.favCharValue = false;
         }
       } else {
+        // const index = state.characters.results.findIndex(
+        //   (character) => character.id === action.payload.id
+        // );
+
+        // if (index !== -1) {
+        //   console.log(state.characters.results["index"]);
+        //   const index_val = state.characters.results["index"];
+        //   state.favCharValue = true;
+        // }
+
         state.favCharacter.push(action.payload);
         state.loaded = true;
         state.numberOfFav += 1;

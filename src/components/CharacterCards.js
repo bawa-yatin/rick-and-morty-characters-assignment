@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { favouriteCharacter, getCharacter } from "../redux/reducers";
@@ -10,14 +10,15 @@ function CharacterCards() {
   const characters = useSelector(
     (state) => state.CharacterReducer.characters.results
   );
-  const favCardColor = useSelector(
-    (state) => state.CharacterReducer.favCharColor
-  );
 
-  // console.log(favCardColor);
+  // const favCardValue = useSelector(
+  //   (state) => state.CharacterReducer.favCharValue
+  // );
+
+  // console.log(favCardValue);
 
   const loaded = useSelector((state) => state.CharacterReducer.loaded);
-  const [flag, setFlag] = useState(false);
+  // const [flag, setFlag] = useState(false);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -31,7 +32,7 @@ function CharacterCards() {
           <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <div className="profile-card-6 mb-4">
               <IconButton
-                // color={favCardColor ? favCardColor : "primary"}
+                // color={favCardValue ? "secondary" : "primary"}
                 onClick={() => {
                   dispatch(favouriteCharacter(elem.url));
                   // setFlag(!flag);
@@ -68,14 +69,13 @@ function CharacterCards() {
 
                   <Link
                     type="button"
-                    className="btn btn-outline-info"
+                    className="btn btn-outline-warning"
                     style={{
                       position: "relative",
                       display: "block",
                       margin: "auto",
                       width: "50%",
                     }}
-                    // to={elem.url}
                     to={`/character/${elem.id}`}
                     elem={elem.url}
                   >

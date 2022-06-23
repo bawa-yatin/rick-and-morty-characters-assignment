@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterCharacter } from "../redux/actions";
 import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
 export var characterCount;
 export var pages;
@@ -18,14 +19,16 @@ function PaginationOfPages() {
   }
   return (
     <>
-      <Pagination
-        count={pages}
-        color="primary"
-        onChange={(e, page) => {
-          dispatch(filterCharacter(`page=${page}`));
-        }}
-        style={{ display: "block", margin: "0 auto" }}
-      />
+      <Stack spacing={2}>
+        <Pagination
+          count={pages}
+          color="warning"
+          onChange={(e, page) => {
+            dispatch(filterCharacter(`page=${page}`));
+          }}
+          style={{ display: "block", margin: "0 auto" }}
+        />
+      </Stack>
     </>
   );
 }
