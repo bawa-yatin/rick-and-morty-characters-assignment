@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import Charactercards from "./CharacterCards";
+import CharacterCards from "./CharacterCards";
 import "./characterCard.css";
 import { filterCharacter } from "../redux/actions";
 import { useDispatch } from "react-redux";
-import Rough from "./rough";
+import PaginationOfPages from "./Pagination";
 
 function CharactersScreen() {
+  const [name, setName] = useState("");
   const [gender, setGender] = useState("");
   const [status, setStatus] = useState("");
   const [species, setSpecies] = useState("");
@@ -14,10 +15,16 @@ function CharactersScreen() {
   const species_list = ["Human", "Alien"];
   const species_status = ["Alive", "Unknown", "Dead"];
 
-  const disptch = useDispatch();
-  if (gender || status || species) {
-    disptch(
-      filterCharacter(`gender=${gender}&status=${status}&species=${species}`)
+  const handleChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const dispatch = useDispatch();
+  if (name || gender || status || species) {
+    dispatch(
+      filterCharacter(
+        `name=${name}&gender=${gender}&status=${status}&species=${species}`
+      )
     );
   }
 
@@ -29,7 +36,7 @@ function CharactersScreen() {
       </h5>
       <form>
         <div class="row mb-4">
-          <div class="col-xl-4">
+          <div class="col-xl-3">
             <select
               class="form-select"
               onChange={(e) => {
@@ -44,7 +51,7 @@ function CharactersScreen() {
               ))}
             </select>
           </div>
-          <div class="col-xl-4">
+          <div class="col-xl-3">
             <select
               class="form-select"
               onChange={(e) => {
@@ -59,7 +66,7 @@ function CharactersScreen() {
               ))}
             </select>
           </div>
-          <div class="col-xl-4">
+          <div class="col-xl-3">
             <select
               class="form-select"
               onChange={(e) => {
@@ -74,10 +81,17 @@ function CharactersScreen() {
               ))}
             </select>
           </div>
+
+          <div class="col-xl-3">
+            <input type="text" value={name} onChange={handleChange}></input>
+          </div>
         </div>
       </form>
       <div className="row">
-        <Charactercards />
+        <CharacterCards />
+      </div>
+      <div id="pagination">
+        <PaginationOfPages />
       </div>
     </div>
   );

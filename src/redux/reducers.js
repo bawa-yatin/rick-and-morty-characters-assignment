@@ -27,7 +27,7 @@ export const getCharacter = createAsyncThunk("get/character", async () => {
   const response = await axios
     .get("https://rickandmortyapi.com/api/character")
     .catch((err) => {
-      console.log("Error :- ", err);
+      console.log("Error:-", err);
     });
   console.log(response.data);
   return response.data;
@@ -52,10 +52,19 @@ const characterSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(favouriteCharacter.fulfilled, (state, action) => {
-      state.favCharacter.push(action.payload);
-      state.loaded = true;
-      state.numberOfFav += 1;
-      state.favCharColor = "primary";
+      if (state.favCharacter.find((elem) => elem.id === action.payload.id)) {
+        const index = state.favCharacter.findIndex(
+          (character) => character.id === action.payload.id
+        );
+
+        if (index !== -1) {
+          state.favCharacter.splice(index, 1);
+        }
+      } else {
+        state.favCharacter.push(action.payload);
+        state.loaded = true;
+        state.numberOfFav += 1;
+      }
     });
     builder.addCase(favouriteCharacter.rejected, (state) => {
       state.loadError = true;
