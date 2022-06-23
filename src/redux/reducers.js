@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { filterCharacter } from "./Actions";
+import { filterCharacter } from "./actions";
 
 const initialState = {
   characters: [],
@@ -16,7 +16,7 @@ export const favouriteCharacter = createAsyncThunk(
   "get/favCharacter",
   async (characterAPI) => {
     const response = await axios.get(`${characterAPI}`).catch((err) => {
-      console.log("Favourite character error : ", err);
+      console.log("Error while fetching favourite character : ", err);
     });
     console.log(response.data);
     return response.data;
@@ -29,12 +29,12 @@ export const getCharacter = createAsyncThunk("get/character", async () => {
     .catch((err) => {
       console.log("Error :- ", err);
     });
-  // console.log(response.data);
+  console.log(response.data);
   return response.data;
 });
 
 const characterSlice = createSlice({
-  name: "chacter",
+  name: "character",
   initialState,
   reducers: {},
   extraReducers: (builder) => {

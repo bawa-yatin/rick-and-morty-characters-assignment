@@ -2,11 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+
 function Navbar() {
-  const number_of_favCharacter = useSelector(
-    (state) => state.CharacterReducer.numberOfFav
-  );
-  // console.log(number_of_favCharacter);
+  useSelector((state) => state.CharacterReducer.numberOfFav);
   return (
     <header className="Navbar">
       <div className="Toolbar">

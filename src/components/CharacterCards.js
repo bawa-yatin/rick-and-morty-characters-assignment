@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { favouriteCharacter, getCharacter } from "../Action_reducer/reducers";
+import { favouriteCharacter, getCharacter } from "../redux/reducers";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import "./Character.card.css";
+import "./characterCard.css";
 
 function Charactercards() {
   const characters = useSelector(

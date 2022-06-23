@@ -4,7 +4,7 @@ import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch } from "react-redux";
-import { filterCharacter } from "../Action_reducer/Actions";
+import { filterCharacter } from "../redux/actions";
 
 export default function Rough() {
   const [name, setName] = useState("");
