@@ -8,21 +8,21 @@ import { useDispatch } from "react-redux";
 import "./characterCard.css";
 
 function FavouriteScreen() {
-  const fav_Character = useSelector(
+  const fav_character = useSelector(
     (state) => state.CharacterReducer.favCharacter
   );
-  const No_of_favcharacter = useSelector(
+  const total_fav_character = useSelector(
     (state) => state.CharacterReducer.numberOfFav
   );
 
   const dispatch = useDispatch();
 
-  if (No_of_favcharacter > 0) {
+  if (total_fav_character > 0) {
     return (
       <div className="container mb-4" style={{ marginTop: "90px" }}>
         <h2 className="mb-3">Favourites</h2>
         <div className="row">
-          {fav_Character.map((elem) => (
+          {fav_character.map((elem) => (
             <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
               <div className="profile-card-6 mb-4">
                 <IconButton

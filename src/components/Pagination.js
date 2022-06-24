@@ -7,7 +7,7 @@ import Stack from "@mui/material/Stack";
 export var characterCount;
 export var pages;
 
-function PaginationOfPages() {
+function PaginationList() {
   const dispatch = useDispatch();
   const pageinfo = useSelector(
     (state) => state.CharacterReducer.characters.info
@@ -33,4 +33,4 @@ function PaginationOfPages() {
   );
 }
 
-export default PaginationOfPages;
+export default PaginationList;

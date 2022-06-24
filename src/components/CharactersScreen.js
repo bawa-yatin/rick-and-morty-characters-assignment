@@ -3,7 +3,7 @@ import CharacterCards from "./CharacterCards";
 import "./characterCard.css";
 import { filterCharacter } from "../redux/actions";
 import { useDispatch } from "react-redux";
-import PaginationOfPages from "./Pagination";
+import PaginationList from "./Pagination";
 
 function CharactersScreen() {
   const [name, setName] = useState("");
@@ -96,7 +96,7 @@ function CharactersScreen() {
         <CharacterCards />
       </div>
       <div id="pagination">
-        <PaginationOfPages />
+        <PaginationList />
       </div>
     </div>
   );
