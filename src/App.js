@@ -16,6 +16,8 @@ function App() {
           <Route path="/" element={<CharactersScreen />} />
           <Route path="/character/:id" element={<CharacterDetails />} />
           <Route path="/fav" element={<FavouriteScreen />} />
+
+          <Route path="*" element={<CharactersScreen />} />
         </Routes>
       </BrowserRouter>
     </div>
