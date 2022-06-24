@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { favouriteCharacter, getCharacter } from "../redux/reducers";
-import IconButton from "@mui/material/IconButton";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import { FaHeart } from "react-icons/fa";
+import { IconContext } from "react-icons";
 import "./characterCard.css";
 
 function CharacterCards() {
@@ -31,16 +31,22 @@ function CharacterCards() {
         <React.Fragment>
           <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
             <div className="profile-card-6 mb-4">
-              <IconButton
-                // color={favCardValue ? "secondary" : "primary"}
-                onClick={() => {
-                  dispatch(favouriteCharacter(elem.url));
-                  // setFlag(!flag);
-                }}
-                style={{ position: "absolute", right: "0", zIndex: "9" }}
-              >
-                <FavoriteIcon />
-              </IconButton>
+              <IconContext.Provider value={{ color: "#212529", size: "20px" }}>
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "15px",
+                    right: "12px",
+                    zIndex: "9",
+                  }}
+                  onClick={() => {
+                    dispatch(favouriteCharacter(elem.url));
+                    // setFlag(!flag);
+                  }}
+                >
+                  <FaHeart />
+                </div>
+              </IconContext.Provider>
               <img src={elem.image} className="img img-responsive" />
               <div className="profile-name">{elem.name}</div>
               <div className="profile-overview">
