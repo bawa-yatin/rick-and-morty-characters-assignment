@@ -57,7 +57,7 @@ function FavouriteScreen() {
                     </div>
                     <Link
                       type="button"
-                      className="btn btn-outline-info"
+                      className="btn btn-outline-warning"
                       style={{
                         position: "relative",
                         display: "block",
