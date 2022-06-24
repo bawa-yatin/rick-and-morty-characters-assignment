@@ -26,7 +26,10 @@ function CharacterDetails() {
   const created_at = trueCharacter.created;
 
   return (
-    <div className="char-details" style={{ margin: "90px" }}>
+    <div
+      className="char-details"
+      style={{ margin: "90px", marginBottom: "40px" }}
+    >
       <section class="about-section gray-bg py-5" id="about">
         <div class="container">
           <div class="row align-items-center flex-row-reverse">

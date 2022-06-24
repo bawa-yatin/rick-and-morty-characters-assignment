@@ -2,8 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { favouriteCharacter, getCharacter } from "../redux/reducers";
 import { useDispatch } from "react-redux";
 import "./characterCard.css";
 
@@ -17,22 +15,16 @@ function FavouriteScreen() {
 
   const dispatch = useDispatch();
 
-  if (total_fav_character > 0) {
+  if (total_fav_character >= 1) {
     return (
       <div className="container mb-4" style={{ marginTop: "90px" }}>
-        <h2 className="mb-3">Favourites</h2>
+        <h2 className="mb-3" style={{ textDecoration: "underline" }}>
+          Favourites
+        </h2>
         <div className="row">
           {fav_character.map((elem) => (
             <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
               <div className="profile-card-6 mb-4">
-                <IconButton
-                  onClick={() => {
-                    dispatch(favouriteCharacter(elem.url));
-                  }}
-                  style={{ position: "absolute", right: "0", zIndex: "9" }}
-                >
-                  <FavoriteIcon />
-                </IconButton>
                 <img src={elem.image} className="img img-responsive" />
                 <div className="profile-name">{elem.name}</div>
                 <div className="profile-overview">
@@ -57,7 +49,7 @@ function FavouriteScreen() {
                     </div>
                     <Link
                       type="button"
-                      className="btn btn-outline-warning"
+                      className="btn btn-success"
                       style={{
                         position: "relative",
                         display: "block",
@@ -75,6 +67,14 @@ function FavouriteScreen() {
             </div>
           ))}
         </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="container mb-4" style={{ marginTop: "90px" }}>
+        <h2 style={{ textDecoration: "underline" }}>
+          No Favourite Characters Present!
+        </h2>
       </div>
     );
   }

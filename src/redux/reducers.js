@@ -6,7 +6,7 @@ const initialState = {
   characters: [],
   favCharacter: [],
   numberOfFav: 0,
-  favCharValue: false,
+  favCharValue: [],
   loading: true,
   loaded: false,
   loadError: false,
@@ -59,22 +59,14 @@ const characterSlice = createSlice({
 
         if (index !== -1) {
           state.favCharacter.splice(index, 1);
-          state.favCharValue = false;
+          state.favCharValue.splice(index, 1);
+          state.numberOfFav -= 1;
         }
       } else {
-        // const index = state.characters.results.findIndex(
-        //   (character) => character.id === action.payload.id
-        // );
-
-        // if (index !== -1) {
-        //   console.log(state.characters.results["index"]);
-        //   const index_val = state.characters.results["index"];
-        //   state.favCharValue = true;
-        // }
-
         state.favCharacter.push(action.payload);
         state.loaded = true;
         state.numberOfFav += 1;
+        state.favCharValue.push(action.payload.id);
       }
     });
     builder.addCase(favouriteCharacter.rejected, (state) => {

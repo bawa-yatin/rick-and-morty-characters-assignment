@@ -22,7 +22,6 @@ function PaginationList() {
       <Stack spacing={2}>
         <Pagination
           count={pages}
-          color="warning"
           onChange={(e, page) => {
             dispatch(filterCharacter(`page=${page}`));
           }}

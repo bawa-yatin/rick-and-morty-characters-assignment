@@ -30,12 +30,15 @@ function CharactersScreen() {
 
   return (
     <div className="container mb-4" style={{ marginTop: "90px" }}>
-      <h2 className="mb-3">Characters</h2>
-      <h5 id="fillterHeader mb-5" style={{ textAlign: "center" }}>
-        Filter Character Using Name, Species, Gender And Status
-      </h5>
-      <form>
-        <div class="row mb-4">
+      <h2 className="mb-3" style={{ textDecoration: "underline" }}>
+        Characters
+      </h2>
+
+      <h3 id="fillterHeader" className="mb-3" style={{ textAlign: "center" }}>
+        Filter Characters
+      </h3>
+      <form className="mb-4">
+        <div class="row ">
           <div class="col-xl-3">
             <input
               type="text"
@@ -92,6 +95,7 @@ function CharactersScreen() {
           </div>
         </div>
       </form>
+
       <div className="row">
         <CharacterCards />
       </div>

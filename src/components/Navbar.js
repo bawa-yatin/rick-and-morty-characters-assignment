@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
-  useSelector((state) => state.CharacterReducer.numberOfFav);
+  const total_fav_character = useSelector(
+    (state) => state.CharacterReducer.numberOfFav
+  );
   return (
     <header className="Navbar">
       <div className="Toolbar">
@@ -18,7 +20,7 @@ function Navbar() {
         </div>
         <div>
           <Link className="mx-2" to={"/fav"}>
-            FAVOURITES
+            FAVOURITES ({total_fav_character})
           </Link>
         </div>
       </div>
