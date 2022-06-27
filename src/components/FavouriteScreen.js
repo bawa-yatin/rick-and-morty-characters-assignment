@@ -1,8 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import IconButton from "@mui/material/IconButton";
-import { useDispatch } from "react-redux";
+
 import "./characterCard.css";
 
 function FavouriteScreen() {
@@ -13,19 +12,21 @@ function FavouriteScreen() {
     (state) => state.CharacterReducer.numberOfFav
   );
 
-  const dispatch = useDispatch();
-
   if (total_fav_character >= 1) {
     return (
       <div className="container mb-4" style={{ marginTop: "90px" }}>
-        <h2 className="mb-3" style={{ textDecoration: "underline" }}>
+        <h2 className="mb-4" style={{ textDecoration: "underline" }}>
           Favourites
         </h2>
         <div className="row">
           {fav_character.map((elem) => (
             <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
               <div className="profile-card-6 mb-4">
-                <img src={elem.image} className="img img-responsive" />
+                <img
+                  src={elem.image}
+                  className="img img-responsive"
+                  alt="User Image"
+                />
                 <div className="profile-name">{elem.name}</div>
                 <div className="profile-overview">
                   <div className="profile-overview">
